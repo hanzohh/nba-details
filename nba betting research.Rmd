@@ -15,28 +15,28 @@ library("lubridate")
 ```
 ```{r}
 
+### Extract today's date ###
 today <- Sys.Date()
 
+### To figure out what season we are in today
 if(month(today) > 8 & month(today) < 13){
 yr <- as.numeric(format(today, '%Y')) + 1
 }else{
 yr <- format(today, "%Y")  
 }
 
-months <- list(tolower(month.name))
-months
+mo <- (tolower(month.name))
 
-schedule <- paste0("https://www.basketball-reference.com/leagues/NBA_", yr ,"_games-", mo ,".html")) 
+schedule <- paste0("https://www.basketball-reference.com/leagues/NBA_", yr ,"_games-", mo ,".html") 
 schedule
 
 read_table <- function(schedule){
   df <- read_html(schedule) %>% 
     html_nodes("table") %>% 
-    html_table(fill = TRUE) %>% 
-
+    html_table(fill = TRUE) 
 }
 
-
+dflist <- 
 
 ```
 
